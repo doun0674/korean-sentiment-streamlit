@@ -36,6 +36,3 @@ if st.button("🔄 운세 초기화"):
     st.session_state.fortune = None
     st.experimental_rerun()
 
-# 바닥글
-st.markdown("---")
-st.caption("© 2025 운세 봇")
