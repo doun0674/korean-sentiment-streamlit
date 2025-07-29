@@ -1,10 +1,6 @@
 import streamlit as st
 import random
 
-# 세션 상태 초기화
-if "fortune" not in st.session_state:
-    st.session_state.fortune = None
-
 # 운세 리스트
 fortunes = [
     "🌞 오늘은 행운이 가득한 날! 원하는 일이 잘 풀릴 거예요.",
@@ -23,16 +19,11 @@ st.title("🔮 오늘의 운세")
 
 st.write("👋 아래 버튼을 눌러 오늘의 운세를 확인해보세요!")
 
-# 운세 보기 버튼
 if st.button("운세 보기"):
-    st.session_state.fortune = random.choice(fortunes)
+    fortune = random.choice(fortunes)
+    st.success(f"✨ 오늘의 운세:\n\n**{fortune}**")
 
-# 운세 출력
-if st.session_state.fortune:
-    st.success(f"✨ 오늘의 운세:\n\n**{st.session_state.fortune}**")
-
-# 초기화 버튼
-if st.button("🔄 운세 초기화"):
-    st.session_state.fortune = None
-    st.experimental_rerun()
+# 다시 보기 기능
+st.markdown("---")
+st.caption("© 2025 운세 봇")
 
